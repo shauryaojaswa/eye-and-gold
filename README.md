@@ -20,7 +20,9 @@ acknowledged and a gift with no strings.
 
 ## Before you send it
 
-Open `main.js` and set the delivery date:
+Set the delivery date in **two places** — they must match:
+
+1. `main.js` (what everyone with JS sees):
 
 ```js
 var CFG = {
@@ -28,7 +30,14 @@ var CFG = {
 };
 ```
 
-That string is the only thing that needs to change when you place the order.
+2. `index.html` (the no-JS fallback, inside `#arrivalDate`):
+
+```html
+<span class="arrival-date" id="arrivalDate">Saturday, 7 November</span>
+```
+
+The HTML copy matters because the page still shows the date if her browser
+blocks scripts. Everything else stays untouched when you place the order.
 
 ## Run locally
 
