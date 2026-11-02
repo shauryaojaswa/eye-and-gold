@@ -1,5 +1,7 @@
 # Only my eyes — for Aditi
 
+**Live:** https://shauryaojaswa.github.io/eye-and-gold/
+
 A phone-first, single-tap apology site that combines two ideas:
 
 1. **Her Eye** — a real GLSL iris on black. It follows her finger (and the
