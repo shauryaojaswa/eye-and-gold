@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Only my eyes — for Aditi</title>
+<meta name="description" content="You said you never wanted to see my face again. So you'll only see my eyes. One eye, one broken heart mended in gold, and tulips on their way to your door." />
+<meta name="theme-color" content="#050406" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<meta property="og:title" content="Only my eyes — for Aditi" />
+<meta property="og:description" content="An eye that follows you, a heart that breaks and mends in gold, and tulips on their way to your door." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
+<script>document.documentElement.className = "js";</script>
+<link rel="stylesheet" href="styles.css?v=20261102" />
+</head>
+<body data-act="0">
+  <a class="skip-link" href="#gift">Skip to the gift</a>
+
+  <!-- ────────────────────────────  static fallback  ──────────────────────────── -->
+  <div class="nojs-fallback">
+    <h1>Only my eyes</h1>
+    <p>You said you never wanted to see my face again. So you'll only see my eyes.</p>
+    <p>I hurt you. You're allowed to hate me for it. I'm not asking for anything.</p>
+    <p>It doesn't go back to how it was. It goes back with gold.</p>
+    <p><strong>Tulips and chocolate are on their way.</strong></p>
+  </div>
+
+  <!-- ────────────────────────────  the stage  ──────────────────────────── -->
+  <div class="cinematic" id="cinematic">
+    <div class="stage" id="stage">
+      <canvas id="eyeCanvas" aria-hidden="true"></canvas>
+      <canvas id="fxCanvas" aria-hidden="true"></canvas>
+      <div class="heart-layer" id="heartLayer" aria-hidden="true"></div>
+      <div class="gold-bloom" id="goldBloom" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+    </div>
+
+    <!-- act 1 · the eye -->
+    <section class="act act-1" id="act1" aria-label="One eye, watching">
+      <div class="copy copy-top">
+        <p class="line" id="l1a">You said you never wanted to see my face again.</p>
+        <p class="line line-em" id="l1b">So you'll only see my eyes.</p>
+      </div>
+      <div class="hint" id="eyeHint"><span class="hint-main">move your finger — she follows</span><span class="hint-sub">tap to blink</span></div>
+      <button class="next" id="next1" type="button" hidden>keep going<span class="chev" aria-hidden="true">↓</span></button>
+    </section>
+
+    <!-- act 2 · the dive -->
+    <section class="act act-2" id="act2" aria-label="Into the dark" hidden>
+      <div class="copy copy-center">
+        <p class="line" id="l2a">I hurt you.</p>
+        <p class="line" id="l2b">You're allowed to hate me for it.</p>
+        <p class="line line-em" id="l2c">I'm not asking for anything.</p>
+      </div>
+      <button class="next" id="next2" type="button" hidden>keep going<span class="chev" aria-hidden="true">↓</span></button>
+    </section>
+
+    <!-- act 3 · the heart -->
+    <section class="act act-3" id="act3" aria-label="A heart, mended in gold" hidden>
+      <div class="copy copy-bottom">
+        <p class="line" id="l3a">It doesn't go back to how it was.</p>
+        <p class="line line-gold" id="l3b">It goes back with gold.</p>
+      </div>
+      <button class="next" id="next3" type="button" hidden>one more thing<span class="chev" aria-hidden="true">↓</span></button>
+    </section>
+  </div>
+
+  <!-- ────────────────────────────  act 4 · the gift  ──────────────────────────── -->
+  <section class="gift" id="gift" aria-label="The gift">
+    <div class="grain" aria-hidden="true"></div>
+    <div class="gift-inner">
+      <p class="eyebrow">one more thing, then I go</p>
+      <h1 class="gift-title">Tulips and chocolate<br /><em>are on their way.</em></h1>
+
+      <figure class="gift-art" role="img" aria-label="A hand-drawn bunch of three red tulips beside a box of chocolates tied with a gold ribbon">
+        <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <g id="tulip">
+              <path class="t-stem" d="M0 0 C -4 -32, 4 -58, 0 -90" />
+              <path class="t-leaf" d="M-2 -36 C -24 -46, -34 -70, -30 -90 C -13 -78, -3 -56, -2 -38" />
+              <path class="t-leaf t-leaf-2" d="M2 -52 C 20 -60, 28 -78, 25 -94 C 13 -86, 5 -70, 2 -54" />
+              <path class="t-bloom" d="M0 -90 C -17 -93, -26 -110, -22 -132 C -16 -122, -8 -118, 0 -120 C 8 -118, 16 -122, 22 -132 C 26 -110, 17 -93, 0 -90 Z" />
+              <path class="t-bloom-lite" d="M0 -120 C -7 -112, -9 -101, -7 -91 M0 -120 C 7 -112, 9 -101, 7 -91" />
+            </g>
+          </defs>
+
+          <g class="tulips">
+            <use href="#tulip" transform="translate(74 194) rotate(-9) scale(1.02)" />
+            <use href="#tulip" transform="translate(116 196) rotate(2) scale(1.14)" />
+            <use href="#tulip" transform="translate(158 194) rotate(11) scale(0.96)" />
+          </g>
+
+          <g class="choco" transform="translate(196 106)">
+            <rect class="c-lid" x="-5" y="-16" width="122" height="24" rx="7" />
+            <rect class="c-body" x="0" y="2" width="112" height="76" rx="9" />
+            <rect class="c-rib-v" x="45" y="2" width="22" height="76" />
+            <rect class="c-rib-h" x="0" y="34" width="112" height="20" />
+            <path class="c-bow" d="M56 2 C 40 -12, 22 -12, 24 2 C 25 12, 44 12, 56 2 Z M56 2 C 72 -12, 90 -12, 88 2 C 87 12, 68 12, 56 2 Z" />
+            <circle class="c-knot" cx="56" cy="2" r="7" />
+          </g>
+
+          <g class="specks">
+            <circle cx="26" cy="44" r="2.4" /><circle cx="308" cy="36" r="3" />
+            <circle cx="188" cy="34" r="2" /><circle cx="330" cy="128" r="2.4" />
+            <circle cx="40" cy="132" r="2" />
+          </g>
+        </svg>
+      </figure>
+
+      <p class="arrival"><span class="arrival-label">arriving at your door</span><span class="arrival-date" id="arrivalDate">—</span></p>
+
+      <div class="gift-copy">
+        <p>I'm not asking you to forgive me. I'm not asking you to reply. I'm not asking for anything.</p>
+        <p>If you don't want to open the door, don't. It's yours either way.</p>
+        <p class="signoff">— him</p>
+      </div>
+
+      <div class="gift-actions">
+        <button class="replay" id="replayBtn" type="button">start over ↺</button>
+      </div>
+    </div>
+    <footer class="footer"><p>made for Aditi · one eye, one heart, one delivery</p></footer>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="eye.js?v=20261102"></script>
+  <script src="main.js?v=20261102"></script>
+</body>
+</html>
