@@ -39,6 +39,24 @@ var CFG = {
 The HTML copy matters because the page still shows the date if her browser
 blocks scripts. Everything else stays untouched when you place the order.
 
+### The Nykaa gift card
+
+The card block sits between the arrival date and the letter. Its text also
+comes from `main.js`:
+
+```js
+card: {
+  store: "Nykaa",
+  amount: "₹500",
+  code: "0000-0000-0000"   // the real code once you've bought it
+}
+```
+
+The visible placeholders are in `index.html` (`#gcBrand`, `#gcAmount`,
+`#gcInline`, `#gcCode`) and in the no-JS summary — update those alongside
+`CFG.card` for the same reason as the date. The code is plain selectable text,
+so it survives with scripts blocked; tapping it copies to the clipboard.
+
 ## Run locally
 
 ```bash

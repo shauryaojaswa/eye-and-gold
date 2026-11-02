@@ -10,7 +10,12 @@
      EDIT THIS BEFORE YOU SEND THE LINK
      ────────────────────────────────────────────────────────── */
   var CFG = {
-    arrival: "Saturday, 7 November"   // when the tulips + chocolate reach her door
+    arrival: "Saturday, 7 November",  // when the tulips + chocolate reach her door
+    card: {
+      store: "Nykaa",
+      amount: "₹500",
+      code: "0000-0000-0000"          // the real code once you've bought it
+    }
   };
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -59,6 +64,38 @@
   var toastEl = $("#toast");
 
   arrivalEl.textContent = CFG.arrival;
+
+  /* ── the gift card ─────────────────────────────────────── */
+  $("#gcBrand").textContent = CFG.card.store;
+  $("#gcAmount").textContent = CFG.card.amount;
+  $("#gcInline").textContent = CFG.card.amount;
+  $("#gcCode").textContent = CFG.card.code;
+
+  var toastTimer = null;
+  function showToast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add("is-on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("is-on"); }, 2200);
+  }
+
+  $("#gcCode").addEventListener("click", function () {
+    var code = CFG.card.code;
+    var done = function () { showToast("code copied"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () { showToast(code); });
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = code;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { showToast(code); }
+      document.body.removeChild(ta);
+    }
+  });
 
   /* ══════════════════════════════════════════════════════
      FX CANVAS — tears that become light, and the tunnel
