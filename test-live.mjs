@@ -58,13 +58,21 @@ const end = await page.evaluate(() => ({
   act: document.body.dataset.act,
   arrival: document.querySelector("#arrivalDate")?.innerText,
   title: document.querySelector(".gift-title")?.innerText,
+  card: {
+    brand: document.querySelector("#gcBrand")?.innerText,
+    amount: document.querySelector("#gcAmount")?.innerText,
+    code: document.querySelector("#gcCode")?.innerText,
+    visible: !!document.querySelector(".gift-card")?.offsetParent
+  },
   overflow: document.documentElement.scrollWidth - window.innerWidth
 }));
 console.log("gift", end);
 console.log("console errors", errors);
 console.log("failed requests", failed);
 
-const bad = errors.length || failed.length || end.act !== "4" || boot.overflow > 0 || end.overflow > 0;
+const cardOk = end.card.brand === "Nykaa" && end.card.amount === "₹500" && end.card.visible;
+const bad = errors.length || failed.length || end.act !== "4" || boot.overflow > 0 || end.overflow > 0 || !cardOk;
+console.log(cardOk ? "card OK" : "card FAIL");
 console.log(bad ? "LIVE FAIL" : "LIVE OK");
 await browser.close();
 process.exit(bad ? 1 : 0);
